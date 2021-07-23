@@ -1,7 +1,7 @@
 import React, {useContext} from 'react';
 import {Context} from "../index";
 import {Container, Nav, Navbar, NavLink} from "react-bootstrap";
-import {ADMIN_ROUTE, LOGIN_ROUTE, SHOP_ROUTE} from "../utils/consts";
+import {SHOP_ROUTE} from "../utils/consts";
 import {Button} from "react-bootstrap";
 
 const NavBar = () => {
@@ -10,11 +10,13 @@ const NavBar = () => {
     return (
         <Navbar bg="dark" variant="dark">
             <Container>
-                <NavLink style={{color:'white'}} to={SHOP_ROUTE}>EASY TO BUY</NavLink>
+                <NavLink style={{color: 'white'}} to={SHOP_ROUTE}>EASY TO BUY</NavLink>
                 {user.isAuth ?
                     <Nav className="ml-auto" style={{color: 'white'}}>
-                        <Button variant={"outline-light"}>Admin panel</Button>
-                        <Button variant={"outline-light"} className="ml-4"> Go out</Button>
+                        <Button variant={"outline-light"} className="mx-lg-4">Admin panel</Button>
+
+                        <Button variant={"outline-light"}> Go out</Button>
+
                     </Nav>
                     :
                     <Nav className="ml-auto" style={{color: 'white'}}>
@@ -25,6 +27,6 @@ const NavBar = () => {
         </Navbar>
 
     );
-    }
+}
 
 export default NavBar;
