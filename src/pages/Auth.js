@@ -18,21 +18,21 @@ const Auth = () => {
             className="d-flex justify-content-center align-items-center"
             style={{height: window.innerHeight - 54}}>
             <Card style={{width: 600}} className="p-5">
-                <h2 className="m-auto">{isLogin ? 'Log in' : "Create an account"}</h2>
+                <h2 className="m-auto">{isLogin ? 'LOG IN' : "CREATE ACCOUNT"}</h2>
                 <Form className="d-flex flex-column">
 
                     <Form.Group className="mb-3" controlId="formGroupEmail">
                         <Form.Label>Email address</Form.Label>
-                        <Form.Control type="email" placeholder="Enter email" />
+                        <Form.Control type="email" placeholder="Enter email"/>
                     </Form.Group>
                     <Form.Group className="mb-3" controlId="formGroupPassword">
                         <Form.Label>Password</Form.Label>
-                        <Form.Control type="password" placeholder="Password" />
+                        <Form.Control type="password" placeholder="Password"/>
                     </Form.Group>
 
 
-
                     <Form.Check
+
                         type="checkbox"
                         id="autoSizingCheck"
                         className="mt-3"
@@ -42,26 +42,24 @@ const Auth = () => {
                     <Row className="d-flex justify-content-between mt-5 p-lg-1 ">
 
                         <Button
-                            variant="outline-warning"
+                            variant="secondary"
                         >
-                            {isLogin ? 'Log in' : 'Create an account'}
+                            {isLogin ? 'LOG IN' : 'CREATE ACCOUNT'}
                         </Button>
 
 
                         {isLogin ?
-                            <div className={ "mt-5 "}
-                             >
-                                You don't have an account? <NavLink to={REGISTRATION_ROUTE}>Create an account!</NavLink>
+                            <div className={"mt-5 "}
+                            >
+                                You don't have an account? <NavLink to={REGISTRATION_ROUTE}>CREATE ACCOUNT!</NavLink>
                             </div>
                             :
-                            <div className={  "mt-5"}
+                            <div className={"mt-5"}
 
                             >
-                                Have an account. <NavLink to={LOGIN_ROUTE}>Log in!</NavLink>
+                                Have an account. <NavLink to={LOGIN_ROUTE}>LOG IN!</NavLink>
                             </div>
                         }
-
-
                     </Row>
 
                 </Form>
