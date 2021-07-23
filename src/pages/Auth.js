@@ -18,25 +18,24 @@ const Auth = () => {
             className="d-flex justify-content-center align-items-center"
             style={{height: window.innerHeight - 54}}>
             <Card style={{width: 600}} className="p-5">
-                <h2 className="m-auto">{isLogin ? 'Авторизация' : "Регистрация"}</h2>
+                <h2 className="m-auto">{isLogin ? 'Log in' : "Create an account"}</h2>
                 <Form className="d-flex flex-column">
 
+                    <Form.Group className="mb-3" controlId="formGroupEmail">
+                        <Form.Label>Email address</Form.Label>
+                        <Form.Control type="email" placeholder="Enter email" />
+                    </Form.Group>
+                    <Form.Group className="mb-3" controlId="formGroupPassword">
+                        <Form.Label>Password</Form.Label>
+                        <Form.Control type="password" placeholder="Password" />
+                    </Form.Group>
 
-                    <Form.Control
-
-                        className={"mt-5"}
-                        placeholder={"Enter your email ..."}
-                    />
-
-                    <Form.Control
-                        className={"mt-5"}
-                        placeholder={"Enter your password ..."}/>
 
 
                     <Form.Check
                         type="checkbox"
                         id="autoSizingCheck"
-                        className="mt-4"
+                        className="mt-3"
                         label="Remember me"
                     />
 
@@ -45,20 +44,20 @@ const Auth = () => {
                         <Button
                             variant="outline-warning"
                         >
-                            {isLogin ? 'Войти' : 'Регистрация'}
+                            {isLogin ? 'Log in' : 'Create an account'}
                         </Button>
 
 
                         {isLogin ?
                             <div className={ "mt-5 "}
                              >
-                                Нет аккаунта? <NavLink to={REGISTRATION_ROUTE}>Зарегистрируйся!</NavLink>
+                                You don't have an account? <NavLink to={REGISTRATION_ROUTE}>Create an account!</NavLink>
                             </div>
                             :
                             <div className={  "mt-5"}
 
                             >
-                                Есть аккаунт? <NavLink to={LOGIN_ROUTE}>Войдите!</NavLink>
+                                Have an account. <NavLink to={LOGIN_ROUTE}>Log in!</NavLink>
                             </div>
                         }
 
