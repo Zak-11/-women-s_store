@@ -4,8 +4,22 @@ export default class ProductStore {
     constructor() {
 
         this._types = [
-            {id: 2, name: 'dress'},
-            {id: 3, name: 'T-SHIRTS'}
+            {id: 1, name: 'Dresses'},
+            {id: 2, name: 'Tops'},
+            {id: 2, name: 'Shirts & Blouses'},
+            {id: 4, name: 'Trousers'},
+            {id: 5, name: 'Jeans'},
+            {id: 6, name: 'Skirts'},
+            {id: 7, name: 'Blazers'},
+            {id: 8, name: 'Jackets & Coats'},
+            {id: 9, name: 'Sweatshirts & Hoodies'},
+            {id: 10, name: 'Sportswear'},
+            {id: 11, name: 'Shorts'},
+            {id: 12, name: 'Basics'},
+            {id: 13, name: 'Cardigans & Jumpers'},
+            {id: 14, name: 'Knitwear'},
+            {id: 15, name: 'Jumpsuits & Rompers'},
+            {id: 16, name: 'Shoes'}
         ]
         this._brands = [
             {id: 2, name: 'dzyi'},
@@ -26,31 +40,55 @@ export default class ProductStore {
                 rating: 7,
                 img: 'https://img.ltwebstatic.com/images3_pi/2021/01/12/161042860324dd01c2860318489a686d4b68bc89e5_thumbnail_900x.webp'
             }
+
         ]
+
+        this._selectedType = {}
+        this._selectedBrand = {}
         makeAutoObservable(this)
     }
-        setTypes(types) {
-            this._types = types
-        }
-        setBrands(brands) {
-            this._brands = brands
-        }
-        setProducts(products) {
-            this._products = products
-        }
+
+    setTypes(types) {
+        this._types = types
+    }
+
+    setBrands(brands) {
+        this._brands = brands
+    }
+
+    setProducts(products) {
+        this._products = products
+    }
+
+    setSelectedType(type) {
+
+        this._selectedType = type
+    }
+
+    setSelectedBrand(brand) {
+
+        this._selectedBrand = brand
+    }
 
 
+    get types() {
+        return this._types
+    }
 
-        get types() {
-            return this._types
-        }
-        get brands() {
-            return this._brands
-        }
-        get product() {
-            return this._products
+    get brands() {
+        return this._brands
+    }
 
+    get product() {
+        return this._products
+    }
 
-}
+    get selectedType() {
+        return this._selectedType
+    }
+
+    get selectedBrand() {
+        return this._selectedBrand
+    }
 
 }
