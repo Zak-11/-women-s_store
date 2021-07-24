@@ -1,11 +1,11 @@
 import React from 'react';
 
-const DevicePage = () => {
+const ProductPage = () => {
     return (
         <div>
-            DevicePage
+           ProductPage
         </div>
     );
 };
 
-export default DevicePage;
+export default ProductPage;

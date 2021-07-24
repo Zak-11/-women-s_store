@@ -27,20 +27,47 @@ export default class ProductStore {
         ]
         this._products = [
             {
-                id: 2,
+                id: 1,
                 name: 'Платье из лиоцклла с воланом',
                 price: 2200,
                 rating: 5,
                 img: 'https://ledixbeauty.ru/wp-content/uploads/2020/04/modnye-bluzki-42.jpg'
             },
             {
-                id: 3,
+                id: 1,
                 name: 'Блуза в англиском стиле',
                 price: 3400,
                 rating: 7,
                 img: 'https://img.ltwebstatic.com/images3_pi/2021/01/12/161042860324dd01c2860318489a686d4b68bc89e5_thumbnail_900x.webp'
-            }
-
+            },
+            {
+                id: 3,
+                name: 'Платье из лиоцклла с воланом',
+                price: 2200,
+                rating: 5,
+                img: 'https://ledixbeauty.ru/wp-content/uploads/2020/04/modnye-bluzki-42.jpg'
+            },
+            {
+                id: 4,
+                name: 'Платье из лиоцклла с воланом',
+                price: 2200,
+                rating: 5,
+                img: 'https://ledixbeauty.ru/wp-content/uploads/2020/04/modnye-bluzki-42.jpg'
+            },
+            {
+                id: 5,
+                name: 'Платье из лиоцклла с воланом',
+                price: 2200,
+                rating: 5,
+                img: 'https://ledixbeauty.ru/wp-content/uploads/2020/04/modnye-bluzki-42.jpg'
+            },
+            {
+                id: 6,
+                name: 'Платье из лиоцклла с воланом',
+                price: 2200,
+                rating: 5,
+                img: 'https://ledixbeauty.ru/wp-content/uploads/2020/04/modnye-bluzki-42.jpg'
+            },
         ]
 
         this._selectedType = {}
@@ -79,7 +106,7 @@ export default class ProductStore {
         return this._brands
     }
 
-    get product() {
+    get products() {
         return this._products
     }
 

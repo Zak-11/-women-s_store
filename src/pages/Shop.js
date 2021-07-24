@@ -4,6 +4,7 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import TypeBar from "../components/TypeBar";
 import BrandBar from "../components/BrandBar";
+import ProductList from "../components/ProductList";
 
 
 const Shop = () => {
@@ -15,6 +16,7 @@ const Shop = () => {
                 </Col>
                 <Col md={9}>
                     <BrandBar/>
+                    <ProductList/>
                 </Col>
             </Row>
 
