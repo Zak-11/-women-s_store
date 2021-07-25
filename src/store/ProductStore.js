@@ -34,7 +34,7 @@ export default class ProductStore {
                 img: 'https://ledixbeauty.ru/wp-content/uploads/2020/04/modnye-bluzki-42.jpg'
             },
             {
-                id: 1,
+                id: 2,
                 name: 'Блуза в англиском стиле',
                 price: 3400,
                 rating: 7,
