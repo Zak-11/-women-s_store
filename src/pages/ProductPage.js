@@ -38,7 +38,7 @@ const ProductPage = () => {
                 </Col>
 
 
-                <Col md={4}>
+                <Col md={4} className='m-4 p-2'>
 
                     <Col md={5}>
                         <Card className="d-flex flex-column align-items-center justify-content-end"
@@ -48,11 +48,13 @@ const ProductPage = () => {
                                 <h2>{product.name}</h2>
                                 <h3>{product.price} руб.</h3>
                             </div>
-                            <Button variant={"outline-dark"}>ADD TO BAG</Button>
+
                         </Card>
 
                     </Col>
 
+
+                    <Button className={'m-4 p-2'} variant={"outline-dark"}>ADD TO BAG</Button>
 
                     <Row className="d-flex flex-column align-items-center">
 

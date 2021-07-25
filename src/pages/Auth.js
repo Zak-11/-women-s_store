@@ -1,38 +1,72 @@
-import React from 'react';
+import React, {useContext, useState} from 'react';
 import {Container, Form} from "react-bootstrap";
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
 import Row from "react-bootstrap/Row";
-import {NavLink, useLocation} from "react-router-dom";
-import {LOGIN_ROUTE, REGISTRATION_ROUTE} from "../utils/consts";
+import {NavLink, useHistory, useLocation} from "react-router-dom";
+import {LOGIN_ROUTE, REGISTRATION_ROUTE, SHOP_ROUTE} from "../utils/consts";
+import {observer} from "mobx-react-lite";
+import {Context} from "../index";
+import {login, registration} from "../http/userAPI";
 
-
-const Auth = () => {
-
+const Auth = observer(() => {
+    const {user} = useContext(Context)
     const location = useLocation()
+    const history = useHistory()
     const isLogin = location.pathname === LOGIN_ROUTE
+    const [email, setEmail] = useState('')
+    const [password, setPassword] = useState('')
 
+    const click = async () => {
+        try {
+            let data;
+            if (isLogin) {
+                data = await login(email, password);
+            } else {
+                data = await registration(email, password);
+            }
+            user.setUser(user)
+            user.setIsAuth(true)
+            history.push(SHOP_ROUTE)
+        } catch (e) {
+            alert(e.response.data.message)
+        }
+
+    }
 
     return (
         <Container
             className="d-flex justify-content-center align-items-center"
             style={{height: window.innerHeight - 54}}>
+
             <Card style={{width: 600}} className="p-5">
-                <h2 className="m-auto">{isLogin ? 'LOG IN' : "CREATE ACCOUNT"}</h2>
+                <h2 className="m-auto">{isLogin ? 'LOG IN' : "Create an account"}</h2>
                 <Form className="d-flex flex-column">
 
-                    <Form.Group className="mb-3" controlId="formGroupEmail">
+                    <Form.Group
+                        className="mb-3"
+                        controlId="formGroupEmail">
                         <Form.Label>Email address</Form.Label>
-                        <Form.Control type="email" placeholder="Enter email"/>
+
+                        <Form.Control type="email"
+                                      placeholder="Enter email"
+                                      value={email}
+                                      onChange={e => setEmail(e.target.value)}
+                        />
                     </Form.Group>
+
                     <Form.Group className="mb-3" controlId="formGroupPassword">
                         <Form.Label>Password</Form.Label>
-                        <Form.Control type="password" placeholder="Password"/>
+                        <Form.Control type="password"
+                                      placeholder="Password"
+                                      value={password}
+                                      onChange={e => setPassword(e.target.value)}
+
+                        />
                     </Form.Group>
 
 
                     <Form.Check
-
                         type="checkbox"
                         id="autoSizingCheck"
                         className="mt-3"
@@ -43,8 +77,9 @@ const Auth = () => {
 
                         <Button
                             variant="secondary"
+                            onClick={click}
                         >
-                            {isLogin ? 'LOG IN' : 'CREATE ACCOUNT'}
+                            {isLogin ? 'LOG IN' : 'Create an account'}
                         </Button>
 
 
@@ -67,6 +102,6 @@ const Auth = () => {
             </Card>
         </Container>
     );
-};
+});
 
 export default Auth;
